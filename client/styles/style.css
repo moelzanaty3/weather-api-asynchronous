@@ -21,14 +21,15 @@ body {
 }
 
 .headline {
-  background-color: #282c34;
+  background-color: #2f80ed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   padding: 1rem;
-  color: white;
+  color: black;
+  font-weight: bold;
 }
 
 button {
@@ -59,6 +60,7 @@ input {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  min-width: 200px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -68,7 +70,6 @@ button.primary {
   border-color: #007bff;
 }
 
-
 .d-flex {
   display: flex;
 }
@@ -76,19 +77,21 @@ button.primary {
 .mt-1 {
   margin-top: 1rem;
 }
-
-.justify-content-center {
-  justify-content: center;
+.mr-1 {
+  margin-right: 1rem;
 }
 
 .align-items-center {
   align-items: center;
 }
 
-.flex-column {
-    flex-direction: column;
+.justify-content-center {
+  justify-content: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
 
 .row {
   display: flex;
@@ -110,7 +113,20 @@ button.primary {
   padding-left: 15px;
 }
 
-
+main {
+  height: calc(100vh - 60px);
+  background: #56ccf2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2f80ed,
+    #56ccf2
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2f80ed,
+    #56ccf2
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .card-title {
   margin-bottom: 0.75rem;
 }
@@ -123,4 +139,8 @@ button.primary {
 .card-text {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+img {
+  width: 150px;
 }

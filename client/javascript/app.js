@@ -4,7 +4,7 @@ document.getElementById('form').addEventListener('submit', async e => {
   // POST: http://localhost:3000/get-weather ==> body { city: 'cairo' }
   // update UI
   try {
-    const URL = 'http://localhost:3000/get-weather'
+    const URL = 'http://localhost:4000/get-weather'
     const response = await fetch(URL, {
       method: 'POST',
       headers: {
@@ -24,12 +24,16 @@ document.getElementById('form').addEventListener('submit', async e => {
 function updateUI(data) {
   // get feeling value
   const feelings = document.getElementById('feelings').value
-  // update new entry values
-  document.getElementById('feelings-data').innerHTML = `${feelings}`
-  document.getElementById('country').innerHTML = `${data.country}`
-  document.getElementById('weather-desc').innerHTML = `${data.weather[0].description}`
-  document.getElementById('country').innerHTML = `${data.sys.country}`
-  document.getElementById('wind-speed').innerHTML = `${data.wind.speed}`
-  document.getElementById('longitude').innerHTML = `${data.coord.lon}`
-  document.getElementById('latitude').innerHTML = `${data.coord.lat}`
+  document.getElementById('content').innerHTML = `
+  <div class="card-title">Most Recent Entry</div>
+  <div id="card-body">
+    <div class="card-text">Feelings: ${feelings}</div>
+    <div class="card-text">Country: ${data.sys.country}</div>
+    <div class="card-text">Weather Description: ${data.weather[0].description}</div>
+    <div class="card-text"><img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" id="weather-icon" alt="icon"></img></div>
+    <div class="card-text">Wind Speed: ${data.wind.speed}</div>
+    <div class="card-text">Longitude: ${data.coord.lon}</div>
+    <div class="card-text">Latitude: ${data.coord.lat}</div>
+  </div>
+  `
 }
